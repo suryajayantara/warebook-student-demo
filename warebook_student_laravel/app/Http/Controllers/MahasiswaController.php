@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -13,7 +14,11 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $data = Mahasiswa::all();
+        return response()->json([
+            'success' => true,
+            'data' => $data
+        ],200);
     }
 
     /**

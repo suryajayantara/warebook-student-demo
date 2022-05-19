@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Mahasiswa;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -14,10 +15,14 @@ class MahasiswaSeeders extends Seeder
      */
     public function run()
     {
+        
 
         $faker = Faker::create('id_ID');
         for ($i=0; $i < 10 ; $i++) { 
-            // Foreach here 
+            Mahasiswa::create([
+                'name' => $faker->name,
+                'address' => $faker->streetAddress,
+            ]);    
         }
         
     }
